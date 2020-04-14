@@ -1,5 +1,5 @@
 ## Write a function that returns the intersection between two arrays of numbers ##
-# With Hash maps
+
 def findIntersection(array1, array2):
     dictionary = dict()
     result = []
@@ -15,7 +15,7 @@ def findIntersection(array1, array2):
     return result
 
 ## Write a function that takes an array and return its longest range of numbers ##
-# With hash maps
+
 
 def findLongestRange(array):
     table = dict()
@@ -46,7 +46,7 @@ def findLongestRange(array):
 # The book is given as an array of strings
 # The frequency count should be an integer(obviously)
 # The method should be reusable
-#With hash maps
+
 
 ## NOTE: Python has a built-in library (Counter) that can implement this problem a lot easier ##
 # refer to the documentation https://docs.python.org/3/library/collections.html to see how
@@ -70,7 +70,7 @@ def getFrequency(dictionary, word):
         return "Word not found"
 
 ### Design a function that checks if a string is a pemutation of a palindrome ###
-#With hash maps
+
 
 def isPalindromePemutation(text):
     dictionary = dict()
@@ -89,4 +89,21 @@ def isPalindromePemutation(text):
                 return False
             foundOdd = True        
     return True
+
+## Design a function that finds the number of pairs of digits in an array ##
+
+def sockMerchant(n, ar):
+    dictionary = dict()
+    pairs = 0
+    for i in range(n):
+        
+        if i in dictionary :
+            if dictionary[i] % 2 == 0 :
+                pairs +=1
+            dictionary[i] +=1
+            
+        else:
+            dictionary[i] = 1
+    return pairs
+ 
 
