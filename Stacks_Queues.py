@@ -1,5 +1,5 @@
 ## Design a method that checks if a string of brackets is balanced ##
-
+# {[()]} : True ______ {{[]()}} : True ______ {([)]} : False
 def isBalanced(s):
     
     if len(s) < 2:
