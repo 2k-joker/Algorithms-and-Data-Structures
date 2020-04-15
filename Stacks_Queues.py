@@ -22,7 +22,7 @@ def isBalanced(s):
     else:
         return "YES"
 
-## Implement a stack object ##
+## Implement a stack ##
 
 class Stack(object):
     def __init__(self):
@@ -43,7 +43,7 @@ class Stack(object):
         self.stack.append(value)
         
         
-## Implement a queue object with a stack methods ##
+## Implement a queue with a stack methods ##
 
 class Queue(object):
     def __init__(self):
