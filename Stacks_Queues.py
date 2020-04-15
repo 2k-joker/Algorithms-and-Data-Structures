@@ -61,3 +61,30 @@ class Queue(object):
         
     def put(self, value):
         self.stack.append(value)
+        
+## Write a method to compute the maximum sub area of a histogram (a.k.a largest rectangle)##
+
+def largestRectangle(h):
+
+    stack = list()
+    maxArea = 0
+    i = 0
+    while i < len(h):
+        if (not stack) or h[stack[-1]] <= h[i]:
+            stack.append(i)
+            i +=1
+        else:
+            top = stack.pop()
+            if len(stack)==0:
+                area = h[top] * i
+            else:
+                area = h[top] * (i - stack[-1] - 1)
+            maxArea = max(maxArea, area)
+    while stack:
+        top = stack.pop()
+        if len(stack)==0:
+            area = h[top] * i
+        else:
+            area = h[top] * (i - stack[-1] - 1)
+        maxArea = max(maxArea, area)
+    return maxArea
