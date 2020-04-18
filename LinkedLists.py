@@ -52,4 +52,18 @@ def sortedInsert(head, data):
 
     return head
 
+## Reverse doublylinked list ##
+def reverse(head):
+    currentPointer = head
+    previousPointer = None
 
+    if currentPointer.next is None:
+        return head
+
+    while currentPointer:
+        previousPointer = currentPointer.prev
+        currentPointer.prev = currentPointer.next
+        currentPointer.next = previousPointer
+        currentPointer = currentPointer.prev
+    
+    return previousPointer.prev
