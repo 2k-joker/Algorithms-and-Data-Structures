@@ -52,8 +52,26 @@ def sortedInsert(head, data):
 
     return head
 
-## Reverse doublylinked list ##
-def reverse(head):
+## Reverse SinglyLinked list ##
+# There's at least one node in the list
+def reverseLinkedList(head):
+  
+    if head.next is None:
+        return head
+    currentPointer = head
+    previousPointer = None
+
+    while currentPointer:
+        holder = currentPointer.next
+        currentPointer.next = previousPointer
+        previousPointer = currentPointer
+        currentPointer = holder
+
+    return previousPointer
+
+## Reverse Doublylinked list ##
+# There is at least one note in the list
+def reverseLinkedList2(head):
     currentPointer = head
     previousPointer = None
 
