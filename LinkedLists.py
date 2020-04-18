@@ -1,7 +1,7 @@
 ## Insert a node at a position k in a linkedlist ##
 
 def insertNodeAtPosition(head, data, position):
-    newNode = SinglyLinkedListNode(data)
+    newNode = Node(data)
     currentNode = head
     
     counter = 0
