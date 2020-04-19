@@ -55,6 +55,28 @@ def quick_sort(array):
             larger.append(x)
     return quick_sort(smaller) + equal + quick_sort(larger)
 
+## Design a bubble sort algorithm ##
+# Average time complexity: O(n^2) 
+
+def bubble_sort(array):
+
+    if len(array) <= 1:
+        return array
+
+    i = 0
+    for i in range(len(array)):
+        j = i+1
+        for j in range(len(array)):
+            if array[i] < array[j]:
+                temp = array[j]
+                array[j] = array[i]
+                array[i] = temp
+                
+            j += 1
+        i += 1
+
+    return array
+
 
 
 
