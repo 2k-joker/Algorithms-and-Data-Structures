@@ -39,7 +39,7 @@ class Stack(object):
             return None
         return self.stack.pop()        
         
-    def put(self, value):
+    def push(self, value):
         self.stack.append(value)
         
         
