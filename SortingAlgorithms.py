@@ -21,7 +21,7 @@ def merge(left, right):
     return result
 
 ## Design a merge sort algorithm ##
-#Time complexity: O(nlogn)
+# Avergae time complexity: O(nlogn)
 
 def merge_sort(array):
 
@@ -35,6 +35,25 @@ def merge_sort(array):
     right = merge_sort(array[split:])
 
     return merge(left, right)
+
+## Design a quick sort algorithm ##
+# Avergae time complexity: O(nlogn)
+from random import randint
+def quick_sort(array):
+
+    if len(array) <= 1:
+        return array
+    smaller, equal, larger = [],[],[]
+    pivot = array[randint(0, len(array) - 1)]
+
+    for x in array:
+        if x < pivot:
+            smaller.append(x)
+        elif x == pivot:
+            equal.append(x)
+        else:
+            larger.append(x)
+    return quick_sort(smaller) + equal + quick_sort(larger)
 
 
 
