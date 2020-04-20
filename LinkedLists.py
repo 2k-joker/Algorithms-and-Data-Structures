@@ -85,3 +85,30 @@ def reverseLinkedList2(head):
         currentPointer = currentPointer.prev
     
     return previousPointer.prev
+
+## Design a function to find a loop in a linked list ##
+def findLoop(head):
+    
+    if head is None:
+        return None
+
+    slowRunner = fastRunner = head
+
+    while  fastRunner is not None and fastRunner.next is not None :
+        
+        fastRunner = fastRunner.next.next
+        slowRunner = slowRunner.next
+
+        if fastRunner == slowRunner :
+            break
+
+    if fastRunner is None or fastRunner.next is None:
+        return None
+
+    slowRunner = head
+
+    while slowRunner != fastRunner:
+        slowRunner = slowRunner.next
+        fastRunner = fastRunner.next
+
+    return fastRunner
