@@ -75,4 +75,19 @@ def moveToEnd(array, target):
             tail -=1
     return array
 
+## Write a function that determines how many times a larger element in a sorted array bribed a smaller element to switch positions ##
+# Average time complexity O(nlogn)
+def minimumBribes(arr):
+    
+    counter = 0
+
+    for i in range(len(arr)):
+        if q[i] - (i+1) > 2:
+            return print("Too chaotic")
+        for j in range(max(0,arr[i]-2),i):
+            if arr[j] > arr[i]:
+                counter += 1
+    return print(counter)
+
+
 
