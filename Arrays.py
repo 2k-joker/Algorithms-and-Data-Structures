@@ -93,7 +93,7 @@ def minimumBribes(arr):
 # Average time complexity: O(nlogn)
 
 def maximumToys(prices, k):
-    if len(prices) ==0 or k == 0:
+    if len(prices) <=0 or k <= 0:
         return 0
     k_and_under = []
 
