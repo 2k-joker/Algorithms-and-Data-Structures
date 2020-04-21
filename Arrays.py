@@ -89,5 +89,27 @@ def minimumBribes(arr):
                 counter += 1
     return print(counter)
 
+## Design a function that finds the maximum number of toys that can be bought given an array of toy prices and max amount ##
+# Average time complexity: O(nlogn)
 
+def maximumToys(prices, k):
+    if len(prices) ==0 or k == 0:
+        return 0
+    k_and_under = []
+
+    for x in prices:
+        if x <= k:
+            k_and_under.append(x)
+
+    k_and_under.sort()
+    max_toys = 0
+
+    for i in range(len(k_and_under)):
+        k -= k_and_under[i]
+        if k < 0:
+            return max_toys
+        i += 1
+        max_toys += 1
+
+    return max_toys
 
