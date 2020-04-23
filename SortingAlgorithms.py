@@ -73,6 +73,39 @@ def bubble_sort(array):
                 
     return array
 
+## Design a method that counts the number of inversions(swaps) needed to sort an array ##
+# average time complexity: O(nlogn)
+
+def countInversions(arr):
+    return count_mergesort(arr)[1]
+
+def count_mergesort(arr):
+    if len(arr) == 1:
+        return arr, 0
+    
+    
+    split = int(len(arr)/2)
+    left = arr[:split]
+    right = arr[split:]
+    left, ai = count_mergesort(left)
+    right, bi = count_mergesort(right)
+
+    inversions = 0 + ai + bi
+    result = []
+    i = j = 0   
+    
+    while i < len(left) and j < len(right):
+        if left[i] <= right[j]:
+            result.append(left[i])
+            i += 1
+        else:
+            result.append(right[j])
+            j += 1
+            inversions += (len(left)-i)
+    result.extend(left[i:])
+    result.extend(right[j:])
+    return result, inversions
+
 
 
 
