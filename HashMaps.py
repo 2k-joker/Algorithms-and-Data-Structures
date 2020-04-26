@@ -196,5 +196,40 @@ def sherlockAndAnagrams(s):
         result += int(count*(count-1)/2)
 
     return result
+
+## Design a function that runs a list of queries and returns the result (Frequency query on hackerrank) ##
+# Average time complexity: O(n)
+
+from collections import defaultdict
+def freqQuery(queries):
+
+    if len(queries) == 0:
+        return None
+
+    keys = defaultdict(int)
+    key_freq = defaultdict(int)
+    result = []
+
+    for q,val in queries:
+        
+        if q == 1:
+            if key_freq[keys[val]]:
+                key_freq[keys[val]] -= 1
+
+            keys[val] += 1
+            key_freq[keys[val]] += 1
+            
+        elif q == 2:
+            if keys[val]:
+                key_freq[keys[val]] -= 1
+                keys[val] -= 1
+                key_freq[keys[val]] += 1
+        
+        elif q == 3:
+            if val in key_freq and key_freq[val] > 0:
+                result.append(1)
+            else: result.append(0) 
+
+    return result
  
 
