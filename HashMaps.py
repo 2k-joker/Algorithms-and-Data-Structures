@@ -231,5 +231,28 @@ def freqQuery(queries):
             else: result.append(0) 
 
     return result
+
+### Design a method that counts and returns the occurrance of each query string in a a given array of strings ###
+### Sparse arrays problem on hackerrank ###
+# Time complexity: O(n)
+def matchingStrings(strings, queries):
+    if not len(strings):
+        return [0]
+
+    table = dict()
+
+    for s in strings:
+        if s in table:
+            table[s] += 1
+        else:
+            table[s] = 1
+    
+    result = []
+    for q in queries:
+        if q in table:
+            result.append(table[q])
+        else:
+            result.append(0)
+    return result
  
 
