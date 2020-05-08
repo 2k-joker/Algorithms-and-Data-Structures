@@ -12,7 +12,7 @@ def isBalanced(s):
         if i in case:
             temp.append(i)
         else:
-            if len(temp):
+            if  not len(temp):
                 return "NO"
             c = temp.pop()
             if c != d[i]:
