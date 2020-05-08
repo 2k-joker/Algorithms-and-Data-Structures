@@ -81,7 +81,7 @@ def minimumBribes(arr):
     counter = 0
 
     for i in range(len(arr)):
-        if q[i] - (i+1) > 2:
+        if arr[i] - (i+1) > 2:
             return print("Too chaotic")
         for j in range(max(0,arr[i]-2),i):
             if arr[j] > arr[i]:
